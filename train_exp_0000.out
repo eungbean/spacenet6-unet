@@ -1,0 +1,87 @@
+/home/diml/.local/lib/python3.8/site-packages/skimage/io/manage_plugins.py:23: UserWarning: Your installed pillow version is < 7.1.0. Several security issues (CVE-2020-11538, CVE-2020-10379, CVE-2020-10994, CVE-2020-10177) have been fixed in pillow 7.1.0 or higher. We recommend to upgrade this library.
+  from .collection import imread_collection_wrapper
+successfully loaded config:
+BOUNDARY_SUBSTRACT_COEFF: 0.2
+BUILDING_MIM_AREA_PIXEL: 0
+BUILDING_SCORE_THRESH: 0.5
+CHECKPOINT_ROOT: /checkpoints
+DATALOADER:
+  TEST_BATCH_SIZE: 2
+  TEST_NUM_WORKERS: 8
+  TRAIN_BATCH_SIZE: 4
+  TRAIN_NUM_WORKERS: 8
+  TRAIN_SHUFFLE: True
+  VAL_BATCH_SIZE: 2
+  VAL_NUM_WORKERS: 8
+DUMP_GIT_INFO: False
+ENSEMBLED_PREDICTION_ROOT: /ensembled_predictions
+ENSEMBLE_EXP_IDS: []
+EVAL:
+  EPOCH_TO_START_VAL: 100
+  MAIN_METRIC: iou/building_footprint
+  METRICS: ['iou']
+EXP_ID: 0
+INPUT:
+  BUILDING_DIR: dataset/masks
+  CLASSES: ['building_footprint', 'building_boundary']
+  IMAGE_DIR: dataset/train
+  IMAGE_TYPE: SAR-Intensity
+  MEAN_STD_DIR: dataset/image_mean_std
+  SAR_ORIENTATION: dataset/SAR_orientations.txt
+  TEST_IMAGE_DIR: /data/spacenet6/spacenet6/test_public/AOI_11_Rotterdam/SAR-Intensity
+  TRAIN_VAL_SPLIT_DIR: dataset/split
+  TRAIN_VAL_SPLIT_ID: 0
+LOG_ROOT: output/models/logs
+METHOD_TO_MAKE_POLYGONS: watershed
+MODEL:
+  ACTIVATION: sigmoid
+  ARCHITECTURE: unet
+  BACKBONE: efficientnet-b7
+  DEVICE: cuda
+  ENCODER_PRETRAINED_FROM: imagenet
+  FPN_DECODER_DROPOUT: 0.2
+  IN_CHANNELS: 4
+  PSPNET_DROPOUT: 0.2
+  UNET_DECODER_CHANNELS: (256, 128, 64, 32, 16)
+  UNET_ENABLE_DECODER_SCSE: True
+  WEIGHT: none
+POLY_CSV_ROOT: /polygons
+POLY_OUTPUT_PATH: none
+PREDICTION_ROOT: /predictions
+SAVE_CHECKPOINTS: False
+SOLVER:
+  EPOCHS: 260
+  FOCAL_LOSS_GAMMA: 2.0
+  LOSSES: ['dice', 'bce']
+  LOSS_WEIGHTS: [1.0, 1.0]
+  LR: 0.0001
+  LR_ANNEALING_ETA_MIN: 0.0
+  LR_ANNEALING_T_MAX: 260
+  LR_MULTISTEP_GAMMA: 0.1
+  LR_MULTISTEP_MILESTONES: [230]
+  LR_SCHEDULER: multistep
+  OPTIMIZER: adam
+  WEIGHT_DECAY: 0.0
+TEST_TO_VAL: False
+TRANSFORM:
+  ALIGN_SAR_ORIENTATION: True
+  TARGET_SAR_ORIENTATION: 0
+  TEST_SIZE: (928, 928)
+  TRAIN_HORIZONTAL_FLIP_PROB: 0.0
+  TRAIN_RANDOM_BRIGHTNESS_PROB: 1.0
+  TRAIN_RANDOM_BRIGHTNESS_STD: 0.0
+  TRAIN_RANDOM_CROP_SIZE: (256, 256)
+  TRAIN_RANDOM_ROTATE_DEG: (-5, 5)
+  TRAIN_RANDOM_ROTATE_PROB: 0.3
+  TRAIN_SPECKLE_NOISE_PROB: 1.0
+  TRAIN_SPECKLE_NOISE_STD: 0.0
+  TRAIN_VERTICAL_FLIP_PROB: 0.0
+WATERSHED_MAIN_THRESH: 0.3
+WATERSHED_MIN_AREA_PIXEL: 80
+WATERSHED_SEED_MIN_AREA_PIXEL: 20
+WATERSHED_SEED_THRESH: 0.7
+WEIGHT_ROOT: output/models/weights
+
+
+Epoch: 0, lr: 0.0001
+train:   0%|          | 0/704 [00:00<?, ?it/s]train:   0%|          | 0/704 [00:01<?, ?it/s, loss - 1.708, iou/all - 0.07206, iou/building_footprint - 0.1327, iou/building_boundary - 0.0345]train:   0%|          | 1/704 [00:01<14:07,  1.21s/it, loss - 1.708, iou/all - 0.07206, iou/building_footprint - 0.1327, iou/building_boundary - 0.0345]train:   0%|          | 1/704 [00:01<14:07,  1.21s/it, loss - 1.746, iou/all - 0.04192, iou/building_footprint - 0.07907, iou/building_boundary - 0.01947]train:   0%|          | 2/704 [00:01<07:48,  1.50it/s, loss - 1.746, iou/all - 0.04192, iou/building_footprint - 0.07907, iou/building_boundary - 0.01947]train:   0%|          | 2/704 [00:01<07:48,  1.50it/s, loss - 1.722, iou/all - 0.04562, iou/building_footprint - 0.1129, iou/building_boundary - 0.01564] train:   0%|          | 3/704 [00:01<05:43,  2.04it/s, loss - 1.722, iou/all - 0.04562, iou/building_footprint - 0.1129, iou/building_boundary - 0.01564]train:   0%|          | 3/704 [00:02<05:43,  2.04it/s, loss - 1.72, iou/all - 0.04546, iou/building_footprint - 0.1039, iou/building_boundary - 0.01853] train:   1%|          | 4/704 [00:02<04:44,  2.46it/s, loss - 1.72, iou/all - 0.04546, iou/building_footprint - 0.1039, iou/building_boundary - 0.01853]train:   1%|          | 4/704 [00:02<04:44,  2.46it/s, loss - 1.713, iou/all - 0.049, iou/building_footprint - 0.1069, iou/building_boundary - 0.02046] train:   1%|          | 5/704 [00:02<04:12,  2.77it/s, loss - 1.713, iou/all - 0.049, iou/building_footprint - 0.1069, iou/building_boundary - 0.02046]train:   1%|          | 5/704 [00:02<04:12,  2.77it/s, loss - 1.718, iou/all - 0.04578, iou/building_footprint - 0.09898, iou/building_boundary - 0.01944]train:   1%|          | 6/704 [00:02<03:52,  3.00it/s, loss - 1.718, iou/all - 0.04578, iou/building_footprint - 0.09898, iou/building_boundary - 0.01944]train:   1%|          | 6/704 [00:02<03:52,  3.00it/s, loss - 1.7, iou/all - 0.05095, iou/building_footprint - 0.116, iou/building_boundary - 0.02028]    train:   1%|          | 7/704 [00:02<03:40,  3.17it/s, loss - 1.7, iou/all - 0.05095, iou/building_footprint - 0.116, iou/building_boundary - 0.02028]train:   1%|          | 7/704 [00:03<03:40,  3.17it/s, loss - 1.709, iou/all - 0.04594, iou/building_footprint - 0.1043, iou/building_boundary - 0.01833]train:   1%|          | 8/704 [00:03<03:31,  3.28it/s, loss - 1.709, iou/all - 0.04594, iou/building_footprint - 0.1043, iou/building_boundary - 0.01833]train:   1%|          | 8/704 [00:03<03:31,  3.28it/s, loss - 1.715, iou/all - 0.04177, iou/building_footprint - 0.09474, iou/building_boundary - 0.01674]train:   1%|▏         | 9/704 [00:03<03:26,  3.36it/s, loss - 1.715, iou/all - 0.04177, iou/building_footprint - 0.09474, iou/building_boundary - 0.01674]train:   1%|▏         | 9/704 [00:03<03:26,  3.36it/s, loss - 1.707, iou/all - 0.04332, iou/building_footprint - 0.09596, iou/building_boundary - 0.01845]train:   1%|▏         | 10/704 [00:03<03:22,  3.43it/s, loss - 1.707, iou/all - 0.04332, iou/building_footprint - 0.09596, iou/building_boundary - 0.01845]train:   1%|▏         | 10/704 [00:04<03:22,  3.43it/s, loss - 1.698, iou/all - 0.04769, iou/building_footprint - 0.09788, iou/building_boundary - 0.0235] train:   2%|▏         | 11/704 [00:04<03:20,  3.46it/s, loss - 1.698, iou/all - 0.04769, iou/building_footprint - 0.09788, iou/building_boundary - 0.0235]train:   2%|▏         | 11/704 [00:04<03:20,  3.46it/s, loss - 1.697, iou/all - 0.04709, iou/building_footprint - 0.09523, iou/building_boundary - 0.02353]train:   2%|▏         | 12/704 [00:04<03:18,  3.49it/s, loss - 1.697, iou/all - 0.04709, iou/building_footprint - 0.09523, iou/building_boundary - 0.02353]train:   2%|▏         | 12/704 [00:04<03:18,  3.49it/s, loss - 1.693, iou/all - 0.04831, iou/building_footprint - 0.09526, iou/building_boundary - 0.02483]train:   2%|▏         | 13/704 [00:04<03:16,  3.51it/s, loss - 1.693, iou/all - 0.04831, iou/building_footprint - 0.09526, iou/building_boundary - 0.02483]train:   2%|▏         | 13/704 [00:04<03:16,  3.51it/s, loss - 1.692, iou/all - 0.04845, iou/building_footprint - 0.09525, iou/building_boundary - 0.02467]train:   2%|▏         | 14/704 [00:04<03:15,  3.53it/s, loss - 1.692, iou/all - 0.04845, iou/building_footprint - 0.09525, iou/building_boundary - 0.02467]train:   2%|▏         | 14/704 [00:05<03:15,  3.53it/s, loss - 1.688, iou/all - 0.04778, iou/building_footprint - 0.09595, iou/building_boundary - 0.02406]train:   2%|▏         | 15/704 [00:05<03:14,  3.55it/s, loss - 1.688, iou/all - 0.04778, iou/building_footprint - 0.09595, iou/building_boundary - 0.02406]train:   2%|▏         | 15/704 [00:05<03:14,  3.55it/s, loss - 1.685, iou/all - 0.04747, iou/building_footprint - 0.09622, iou/building_boundary - 0.02361]train:   2%|▏         | 16/704 [00:05<03:13,  3.56it/s, loss - 1.685, iou/all - 0.04747, iou/building_footprint - 0.09622, iou/building_boundary - 0.02361]train:   2%|▏         | 16/704 [00:05<03:13,  3.56it/s, loss - 1.675, iou/all - 0.05281, iou/building_footprint - 0.1034, iou/building_boundary - 0.02696] train:   2%|▏         | 17/704 [00:05<03:12,  3.56it/s, loss - 1.675, iou/all - 0.05281, iou/building_footprint - 0.1034, iou/building_boundary - 0.02696]train:   2%|▏         | 17/704 [00:05<03:12,  3.56it/s, loss - 1.678, iou/all - 0.04988, iou/building_footprint - 0.09769, iou/building_boundary - 0.02546]train:   3%|▎         | 18/704 [00:05<03:12,  3.56it/s, loss - 1.678, iou/all - 0.04988, iou/building_footprint - 0.09769, iou/building_boundary - 0.02546]train:   3%|▎         | 18/704 [00:06<03:12,  3.56it/s, loss - 1.678, iou/all - 0.0494, iou/building_footprint - 0.09594, iou/building_boundary - 0.02555] train:   3%|▎         | 19/704 [00:06<03:12,  3.55it/s, loss - 1.678, iou/all - 0.0494, iou/building_footprint - 0.09594, iou/building_boundary - 0.02555]train:   3%|▎         | 19/704 [00:06<03:12,  3.55it/s, loss - 1.678, iou/all - 0.048, iou/building_footprint - 0.09339, iou/building_boundary - 0.02473] train:   3%|▎         | 20/704 [00:06<03:13,  3.53it/s, loss - 1.678, iou/all - 0.048, iou/building_footprint - 0.09339, iou/building_boundary - 0.02473]train:   3%|▎         | 20/704 [00:06<03:13,  3.53it/s, loss - 1.673, iou/all - 0.04965, iou/building_footprint - 0.09645, iou/building_boundary - 0.02486]train:   3%|▎         | 21/704 [00:06<03:12,  3.54it/s, loss - 1.673, iou/all - 0.04965, iou/building_footprint - 0.09645, iou/building_boundary - 0.02486]train:   3%|▎         | 21/704 [00:07<03:12,  3.54it/s, loss - 1.669, iou/all - 0.05155, iou/building_footprint - 0.0987, iou/building_boundary - 0.02637] train:   3%|▎         | 22/704 [00:07<03:12,  3.55it/s, loss - 1.669, iou/all - 0.05155, iou/building_footprint - 0.0987, iou/building_boundary - 0.02637]train:   3%|▎         | 22/704 [00:07<03:12,  3.55it/s, loss - 1.67, iou/all - 0.04945, iou/building_footprint - 0.09467, iou/building_boundary - 0.02528]train:   3%|▎         | 23/704 [00:07<03:11,  3.56it/s, loss - 1.67, iou/all - 0.04945, iou/building_footprint - 0.09467, iou/building_boundary - 0.02528]train:   3%|▎         | 23/704 [00:07<03:11,  3.56it/s, loss - 1.67, iou/all - 0.04827, iou/building_footprint - 0.0921, iou/building_boundary - 0.02479] train:   3%|▎         | 24/704 [00:07<03:10,  3.56it/s, loss - 1.67, iou/all - 0.04827, iou/building_footprint - 0.0921, iou/building_boundary - 0.02479]train:   3%|▎         | 24/704 [00:07<03:10,  3.56it/s, loss - 1.672, iou/all - 0.04634, iou/building_footprint - 0.08842, iou/building_boundary - 0.0238]train:   4%|▎         | 25/704 [00:07<03:10,  3.57it/s, loss - 1.672, iou/all - 0.04634, iou/building_footprint - 0.08842, iou/building_boundary - 0.0238]train:   4%|▎         | 25/704 [00:08<03:10,  3.57it/s, loss - 1.67, iou/all - 0.04633, iou/building_footprint - 0.08814, iou/building_boundary - 0.02372]train:   4%|▎         | 26/704 [00:08<03:09,  3.57it/s, loss - 1.67, iou/all - 0.04633, iou/building_footprint - 0.08814, iou/building_boundary - 0.02372]train:   4%|▎         | 26/704 [00:08<03:09,  3.57it/s, loss - 1.665, iou/all - 0.04832, iou/building_footprint - 0.09112, iou/building_boundary - 0.02479]train:   4%|▍         | 27/704 [00:08<03:09,  3.57it/s, loss - 1.665, iou/all - 0.04832, iou/building_footprint - 0.09112, iou/building_boundary - 0.02479]train:   4%|▍         | 27/704 [00:08<03:09,  3.57it/s, loss - 1.661, iou/all - 0.04953, iou/building_footprint - 0.09222, iou/building_boundary - 0.02587]train:   4%|▍         | 28/704 [00:08<03:09,  3.57it/s, loss - 1.661, iou/all - 0.04953, iou/building_footprint - 0.09222, iou/building_boundary - 0.02587]train:   4%|▍         | 28/704 [00:09<03:09,  3.57it/s, loss - 1.661, iou/all - 0.04877, iou/building_footprint - 0.09103, iou/building_boundary - 0.02535]train:   4%|▍         | 29/704 [00:09<03:09,  3.57it/s, loss - 1.661, iou/all - 0.04877, iou/building_footprint - 0.09103, iou/building_boundary - 0.02535]train:   4%|▍         | 29/704 [00:09<03:09,  3.57it/s, loss - 1.659, iou/all - 0.04949, iou/building_footprint - 0.09194, iou/building_boundary - 0.02576]train:   4%|▍         | 30/704 [00:09<03:08,  3.57it/s, loss - 1.659, iou/all - 0.04949, iou/building_footprint - 0.09194, iou/building_boundary - 0.02576]
